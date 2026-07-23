@@ -1,0 +1,358 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow-x:hidden;
+
+    position:relative;
+
+}
+
+/* Background */
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    background-image:url("images/forIn.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    z-index:-2;
+}
+
+/* Main */
+
+.container{
+
+    width:90%;
+
+    max-width:900px;
+
+    background:rgba(255,255,255,.72);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:30px;
+
+    padding:60px;
+
+    text-align:center;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.2);
+
+}
+
+h1{
+
+    font-size:52px;
+
+    color:#ff1493;
+
+    margin-bottom:10px;
+
+}
+
+.subtitle{
+
+    color:#555;
+
+    margin-bottom:40px;
+
+    font-size:20px;
+
+}
+
+.summary-box{
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:45px;
+
+    border:4px solid hotpink;
+
+    text-align:left;
+
+    line-height:2;
+
+    font-size:18px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+
+}
+
+.summary-box h2{
+
+    text-align:center;
+
+    color:#ff1493;
+
+    margin-bottom:25px;
+
+}
+
+button{
+
+    margin-top:35px;
+
+    border:none;
+
+    padding:18px 40px;
+
+    font-size:20px;
+
+    border-radius:60px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-weight:bold;
+
+    background:linear-gradient(
+        45deg,
+        hotpink,
+        deeppink,
+        #6b5cff
+    );
+
+    transition:.35s;
+
+}
+
+button:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:0 15px 40px hotpink;
+
+}
+
+.letter{
+
+    position:fixed;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%) scale(.7);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    width:650px;
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:50px;
+
+    text-align:center;
+
+    box-shadow:0 25px 70px rgba(0,0,0,.3);
+
+    transition:.4s;
+
+}
+
+.letter h2{
+
+    color:hotpink;
+
+    margin-bottom:20px;
+
+}
+
+.letter p{
+
+    line-height:2;
+
+    font-size:18px;
+
+}
+
+.show{
+
+    opacity:1;
+
+    transform:translate(-50%,-50%) scale(1);
+
+    pointer-events:auto;
+
+}
+.cake-btn{
+    margin-left:220px;
+    background:linear-gradient(45deg,#ffb347,#ff6b6b);
+}
+
+.cake-modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    margin-left:760px;
+    margin-top:365px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    background:rgba(0,0,0,.6);
+
+    opacity:0;
+    pointer-events:none;
+    transition:.4s;
+
+    z-index:9999;
+}
+
+.cake-modal.show{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.cake{
+    position:relative;
+    width:280px;
+    height:240px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-end;
+
+    transform:scale(0);
+    opacity:0;
+}
+.cake-modal.show .cake{
+    animation:cakePop .8s cubic-bezier(.17,1.5,.32,1) forwards;
+}
+.cake-top{
+    width:200px;
+    height:55px;
+    background:white;
+    border-radius:20px;
+}
+
+.cake-middle{
+    width:240px;
+    height:70px;
+    background:#ffd4ec;
+    border-radius:20px;
+    margin-top:-5px;
+}
+
+.cake-bottom{
+    width:280px;
+    height:90px;
+    background:#ff9acb;
+    border-radius:20px;
+    margin-top:-5px;
+}
+
+.candles{
+    position:absolute;
+    top:-40px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:35px;
+}
+
+.candles{
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:35px;
+}
+
+.flame{
+    width:16px;
+    height:24px;
+    background:gold;
+    border-radius:50%;
+    position:absolute;
+    left:50%;
+    top:-20px;
+    transform:translateX(-50%);
+    animation:flicker .25s infinite alternate;
+    box-shadow:0 0 20px orange;
+}
+
+.cake-modal h2{
+    margin-top:35px;
+    color:white;
+    font-size:42px;
+    text-shadow:0 0 20px hotpink;
+}
+
+@keyframes flicker{
+    from{
+        transform:translateX(-50%) scale(1);
+        opacity:1;
+    }
+    to{
+        transform:translateX(-50%) scale(.8);
+        opacity:.7;
+    }
+}
+
+.cake{
+    position:relative;
+    width:280px;
+    height:240px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-end;
+    animation:pop .6s ease;
+}
+
+@keyframes cakePop{
+
+    0%{
+        transform:scale(0);
+        opacity:0;
+    }
+
+    60%{
+        transform:scale(1.2);
+        opacity:1;
+    }
+
+    80%{
+        transform:scale(.92);
+    }
+
+    100%{
+        transform:scale(1);
+        opacity:1;
+    }
+}
