@@ -21,6 +21,6 @@ function nextDialogue() {
         document.getElementById("dialogue").textContent = dialogues[current];
         document.getElementById("photo").src = pictures[current];
     } else {
-        window.location.href = "page2.html";
+        window.location.href = "index2.html";
     }
 }
